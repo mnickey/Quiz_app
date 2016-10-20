@@ -42,4 +42,7 @@ var state = {
 // Document ready
 $(document).ready(function () {
     console.log("ready");
+    console.log($('#go-button').val()); // get the text of the button
+    // var btn_text = $('#go-button').val('whee'); // change the text of the button
+    // console.log($('#go-button').val()); // log in console to check
 });
