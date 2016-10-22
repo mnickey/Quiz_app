@@ -6,6 +6,9 @@
 var state = {
     questions: [
         {
+          text: "Welcome to my quiz on Hawaii. Let's see what you know about the islands. Mahalo"
+        },
+        {
             text: "The string of flowers sewn together and tied at the ends to form a circle is called a",
             answers: ["lei", "rosary", "poi", "hula", "crea"],
             correctAnswer: "lei"
@@ -39,10 +42,20 @@ var state = {
     questionIndex: 0
 };
 
+// Render function
+var renderQuiz = function(state, element) {
+    var questionText = state.questions.text[0];
+    console.log(questionText);
+};
+
 // Document ready
 $(document).ready(function () {
     console.log("ready");
-    console.log($('#go-button').val()); // get the text of the button
+    // console.log($('#go-button').val()); // get the text of the button
     // var btn_text = $('#go-button').val('whee'); // change the text of the button
     // console.log($('#go-button').val()); // log in console to check
+    $('.question-text').on('click', '#go-button', function(){
+        preventDefault();
+        renderQuiz(state, $('.question-text'));
+    });
 });
