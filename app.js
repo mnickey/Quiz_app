@@ -44,18 +44,18 @@ var state = {
 
 // Render function
 var renderQuiz = function(state, element) {
-    var questionText = state.questions.text[0];
+    var questionText = state.questions[0]['text'];
+    var innerHTML = '<p class="question-text" >' + questionText + '</p>';
     console.log(questionText);
+    element.append(questionText);
 };
 
 // Document ready
 $(document).ready(function () {
     console.log("ready");
-    // console.log($('#go-button').val()); // get the text of the button
-    // var btn_text = $('#go-button').val('whee'); // change the text of the button
-    // console.log($('#go-button').val()); // log in console to check
-    $('.question-text').on('click', '#go-button', function(){
-        preventDefault();
+    // Event Listeners
+    $('.opening-text').on('click', '#go-button', function(event){
+        event.preventDefault();
         renderQuiz(state, $('.question-text'));
     });
 });
