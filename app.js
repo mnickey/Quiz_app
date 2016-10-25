@@ -53,7 +53,7 @@ var renderQuiz = function (state, element) {
         questionText = state.questions[0]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
         console.log(questionText);
-        state.questions.questionIndex += 1;
+        state.questions.questionIndex = 1;
     // Questions
     } else if (state.questions.questionIndex < (state.questions.length - 1)) {
         element.empty(); // clear the contents of the page for each question
@@ -63,6 +63,7 @@ var renderQuiz = function (state, element) {
         state.questions.questionIndex += 1;
     // restart or grade the quiz
     } else {
+        element.empty();
         state.questions.questionIndex = 0;
     }
     element.append(innerHTML);
