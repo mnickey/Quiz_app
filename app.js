@@ -47,6 +47,7 @@ var renderQuiz = function (state, element) {
     // console.log(state.questions.length);
     var innerHTML;
     var questionText;
+
     if (state.questions.questionIndex == 0) {
     // Opening
         questionText = state.questions[0]['text'];
