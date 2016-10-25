@@ -6,7 +6,7 @@
 var state = {
     questions: [
         {
-          text: "Welcome to my quiz on Hawaii. Let's see what you know about the islands. Mahalo"
+            text: "Welcome to my quiz on Hawaii. Let's see what you know about the islands. Mahalo"
         },
         {
             text: "The string of flowers sewn together and tied at the ends to form a circle is called a",
@@ -43,18 +43,31 @@ var state = {
 };
 
 // Render function
-var renderQuiz = function(state, element) {
-    var questionText = state.questions[0]['text'];
-    var innerHTML = '<p class="question-text" >' + questionText + '</p>';
-    console.log(questionText);
+var renderQuiz = function (state, element) {
+    // console.log(state.questions.length);
+    var innerHTML;
+    var questionText;
+    if (state.questions.questionIndex == 0) {
+        console.log('state index: ' + state.questions.questionIndex);
+        questionText = state.questions.questionIndex['text'];
+        innerHTML = '<p class="question-text" >' + questionText + '</p>';
+        state.questions.questionIndex += 1;
+    } else if (state.questions.questionIndex < (state.questions.length - 1)) {
+        console.log('state index: ' + state.questions.questionIndex);
+        questionText = state.questions.questionIndex['text'];
+        innerHTML = '<p class="question-text" >' + questionText + '</p>';
+        state.questions.questionIndex += 1;
+    } else {
+        state.questions.questionIndex = 0; // restart or grade the quiz
+    }
     element.append(questionText);
 };
 
 // Document ready
 $(document).ready(function () {
-    console.log("ready");
+
     // Event Listeners
-    $('.opening-text').on('click', '#go-button', function(event){
+    $('.opening-text').on('click', '#go-button', function (event) {
         event.preventDefault();
         renderQuiz(state, $('.question-text'));
     });
