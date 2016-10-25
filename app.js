@@ -48,19 +48,23 @@ var renderQuiz = function (state, element) {
     var innerHTML;
     var questionText;
     if (state.questions.questionIndex == 0) {
-        console.log('state index: ' + state.questions.questionIndex);
-        questionText = state.questions.questionIndex['text'];
+    // Opening
+        questionText = state.questions[0]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
+        console.log(questionText);
         state.questions.questionIndex += 1;
+    // Questions
     } else if (state.questions.questionIndex < (state.questions.length - 1)) {
+        element.empty(); // clear the contents of the page for each question
         console.log('state index: ' + state.questions.questionIndex);
-        questionText = state.questions.questionIndex['text'];
+        questionText = state.questions[state.questions.questionIndex]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
         state.questions.questionIndex += 1;
+    // restart or grade the quiz
     } else {
-        state.questions.questionIndex = 0; // restart or grade the quiz
+        state.questions.questionIndex = 0;
     }
-    element.append(questionText);
+    element.append(innerHTML);
 };
 
 // Document ready
