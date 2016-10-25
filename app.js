@@ -44,11 +44,11 @@ var state = {
 
 // Render function
 var renderQuiz = function (state, element) {
-    // console.log(state.questions.length);
+    console.log(state.questions.questionIndex);
     var innerHTML;
     var questionText;
 
-    if (state.questions.questionIndex == 0) {
+    if (state.questions.questionIndex == 0 || state.questions.questionIndex == '') {
     // Opening
         questionText = state.questions[0]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
@@ -75,6 +75,8 @@ $(document).ready(function () {
     // Event Listeners
     $('.opening-text').on('click', '#go-button', function (event) {
         event.preventDefault();
+        var qIndex = state.questions.questionIndex;
+        console.log(qIndex);
         renderQuiz(state, $('.question-text'));
     });
 });
