@@ -85,9 +85,9 @@ var renderQuiz = function (state, element) {
             innerHTML += '<input type="radio" name="answer" value=' + myValue + '>' +
                 '</label>' + ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
         }
-
         // restart or grade the quiz
         scoreAnswer(state, userChoice);
+        // increment index
         state.questionIndex += 1;
 
     } else {
