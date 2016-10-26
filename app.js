@@ -108,7 +108,8 @@ $(document).ready(function () {
         renderQuiz(state, $('.question-text'));
     });
 
-    // reset the quiz
+    // TODO: figure out why userChoice is undefined
+    // TODO: add a way to reset the quiz
     // TODO: add progress bar
     // TODO: hide button on last question, show re-do question (.toggleClass)
     // TODO: add final score
