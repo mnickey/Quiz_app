@@ -69,6 +69,7 @@ var renderQuiz = function (state, element) {
         console.log('state index: ' + state.questions.questionIndex);
         questionText = state.questions[state.questions.questionIndex]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
+        innerHTML += choices;
         state.questions.questionIndex += 1;
 
     // restart or grade the quiz
