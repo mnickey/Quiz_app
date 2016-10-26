@@ -49,15 +49,7 @@ var renderQuiz = function (state, element) {
     console.log(state.questionIndex);
     var innerHTML;
     var questionText;
-    // var choices = '<label>' +
-    //     '<input type="radio" name="gender" value="male" checked>' +
-    //     '</label> Male<br>' +
-    //     '<label>' +
-    //     '<input type="radio" name="gender" value="female">' +
-    //     '</label> Female<br>' +
-    //     '<label>' +
-    //     '<input type="radio" name="gender" value="other">' +
-    //     '</label> Other<br>';
+    var userChoice = $("input[name=answer]:checked").val();
 
     if (state.questionIndex == 0 || state.questionIndex == '') {
         // Opening
@@ -65,26 +57,29 @@ var renderQuiz = function (state, element) {
         questionText = state.questions[0]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
 
-        // score quiz here
+        // score quiz function call here
         state.questionIndex = 1;
+        $('#go-button').val('Next Question');
 
         // Questions
     } else if (state.questionIndex < (state.questions.length - 1)) {
         element.empty(); // clear the contents of the page for each question
         questionText = state.questions[state.questionIndex]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
+
         // loop over the questions in the array and populate the html
         for (var i = 0; i < state.questions[state.questionIndex]['answers'].length; i++) {
             innerHTML += '<input type="radio" name="answer" value="other">' +
                 '</label>' + ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
         }
-        console.log(innerHTML);
+        console.log(userChoice);
         state.questionIndex += 1;
 
         // restart or grade the quiz
     } else {
         element.empty();
-        state.questions.questionIndex = 0;
+        state.questionIndex = 0;
+        $('#go-button').val('Restart Quiz');
     }
     element.append(innerHTML);
 };
@@ -100,7 +95,6 @@ $(document).ready(function () {
 
     // reset the quiz
     // TODO: add progress bar
-    // TODO: add new text to button instead of start quiz (.val)
     // TODO: hide button on last question, show re-do question (.toggleClass)
     // TODO: add final score
 });
