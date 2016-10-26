@@ -43,13 +43,25 @@ var state = {
 };
 
 // score quiz
+var scoreAnswer = function(state, userChoice) {
+    if(userChoice == state.questions[state.questionIndex]['correctAnswer']) {
+        console.log("User choice: " + userChoice);
+        console.log("Correct Answer: " + state.questions[state.questionIndex]['correctAnswer']);
+        state.score += 1;
+        console.log(state.score);
+    } else {
+        console.log("User choice: " + userChoice);
+        console.log("Correct Answer: " + state.questions[state.questionIndex]['correctAnswer']);
+        console.log(state.score);
+    }
+    return state.score;
+};
 
 // Render function
 var renderQuiz = function (state, element) {
-    console.log(state.questionIndex);
     var innerHTML;
     var questionText;
-    var userChoice = $("input[name=answer]:checked").val();
+    var userChoice = $("input[type=radio]:checked").val();
 
     if (state.questionIndex == 0 || state.questionIndex == '') {
         // Opening
@@ -69,16 +81,19 @@ var renderQuiz = function (state, element) {
 
         // loop over the questions in the array and populate the html
         for (var i = 0; i < state.questions[state.questionIndex]['answers'].length; i++) {
-            innerHTML += '<input type="radio" name="answer" value="other">' +
+            myValue = state.questions[state.questionIndex]['answers'][i];
+            innerHTML += '<input type="radio" name="answer" value=' + myValue + '>' +
                 '</label>' + ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
         }
-        console.log(userChoice);
-        state.questionIndex += 1;
 
         // restart or grade the quiz
+        scoreAnswer(state, userChoice);
+        state.questionIndex += 1;
+
     } else {
         element.empty();
         state.questionIndex = 0;
+        state.score = 0;
         $('#go-button').val('Restart Quiz');
     }
     element.append(innerHTML);
@@ -86,7 +101,7 @@ var renderQuiz = function (state, element) {
 
 // Document ready
 $(document).ready(function () {
-    // initalize state object
+
     // Event Listeners
     $('.opening-text').on('click', '#go-button', function (event) {
         event.preventDefault();
