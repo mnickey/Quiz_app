@@ -43,12 +43,12 @@ var state = {
 };
 
 // score quiz
-var scoreAnswer = function(state, userChoice) {
+var scoreAnswer = function (state, userChoice) {
     // if the user checks the correct radio button, increase state score by 1
-    if(userChoice == state.questions[state.questionIndex]['correctAnswer']) {
+    if (userChoice == state.questions[state.questionIndex]['correctAnswer']) {
         console.log("User choice: " + userChoice);
         console.log("Correct Answer: " + state.questions[state.questionIndex]['correctAnswer']);
-        state.score += 1;
+        state.score = state.score + 1;
         console.log(state.score);
     } else {
         console.log("User choice: " + userChoice);
@@ -74,6 +74,13 @@ var renderQuiz = function (state, element) {
 
         // Questions
     } else if (state.questionIndex < (state.questions.length - 1)) {
+        // remove button until an item is checked
+        if ($('input[name=answer]:checked').size <= 0) {
+            $('#go-button').addClass('hidden');
+        } else {
+            $('#go-button').removeClass('hidden');
+        }
+
         $('#go-button').val("Next Question");
         element.empty(); // clear the contents of the page for each question
         questionText = state.questions[state.questionIndex]['text'];
