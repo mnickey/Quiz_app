@@ -47,13 +47,22 @@ var renderQuiz = function (state, element) {
     console.log(state.questions.questionIndex);
     var innerHTML;
     var questionText;
+    var choices = '<label>' +
+        '<input type="radio" name="gender" value="male" checked>' +
+        '</label> Male<br>' +
+        '<label>' +
+        '<input type="radio" name="gender" value="female">' +
+        '</label> Female<br>' +
+        '<label>' +
+        '<input type="radio" name="gender" value="other">' +
+        '</label> Other<br>';
 
     if (state.questions.questionIndex == 0 || state.questions.questionIndex == '') {
     // Opening
         questionText = state.questions[0]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
-        console.log(questionText);
         state.questions.questionIndex = 1;
+
     // Questions
     } else if (state.questions.questionIndex < (state.questions.length - 1)) {
         element.empty(); // clear the contents of the page for each question
@@ -61,6 +70,7 @@ var renderQuiz = function (state, element) {
         questionText = state.questions[state.questions.questionIndex]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
         state.questions.questionIndex += 1;
+
     // restart or grade the quiz
     } else {
         element.empty();
@@ -71,7 +81,8 @@ var renderQuiz = function (state, element) {
 
 // Document ready
 $(document).ready(function () {
-
+    // initalize state object
+    state.questions.questionIndex;
     // Event Listeners
     $('.opening-text').on('click', '#go-button', function (event) {
         event.preventDefault();
