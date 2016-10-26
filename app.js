@@ -44,6 +44,7 @@ var state = {
 
 // score quiz
 var scoreAnswer = function(state, userChoice) {
+    // if the user checks the correct radio button, increase state score by 1
     if(userChoice == state.questions[state.questionIndex]['correctAnswer']) {
         console.log("User choice: " + userChoice);
         console.log("Correct Answer: " + state.questions[state.questionIndex]['correctAnswer']);
@@ -68,13 +69,12 @@ var renderQuiz = function (state, element) {
         element.empty();
         questionText = state.questions[0]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
-
-        // score quiz function call here
         state.questionIndex = 1;
-        $('#go-button').val('Next Question');
+        $('#go-button').val("Let's begin");
 
         // Questions
     } else if (state.questionIndex < (state.questions.length - 1)) {
+        $('#go-button').val("Next Question");
         element.empty(); // clear the contents of the page for each question
         questionText = state.questions[state.questionIndex]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
@@ -85,7 +85,7 @@ var renderQuiz = function (state, element) {
             innerHTML += '<input type="radio" name="answer" value=' + myValue + '>' +
                 '</label>' + ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
         }
-        // restart or grade the quiz
+        // Score each answer
         scoreAnswer(state, userChoice);
         // increment index
         state.questionIndex += 1;
