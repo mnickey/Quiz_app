@@ -42,37 +42,46 @@ var state = {
     questionIndex: 0
 };
 
+// score quiz
+
 // Render function
 var renderQuiz = function (state, element) {
-    console.log(state.questions.questionIndex);
+    console.log(state.questionIndex);
     var innerHTML;
     var questionText;
-    var choices = '<label>' +
-        '<input type="radio" name="gender" value="male" checked>' +
-        '</label> Male<br>' +
-        '<label>' +
-        '<input type="radio" name="gender" value="female">' +
-        '</label> Female<br>' +
-        '<label>' +
-        '<input type="radio" name="gender" value="other">' +
-        '</label> Other<br>';
+    // var choices = '<label>' +
+    //     '<input type="radio" name="gender" value="male" checked>' +
+    //     '</label> Male<br>' +
+    //     '<label>' +
+    //     '<input type="radio" name="gender" value="female">' +
+    //     '</label> Female<br>' +
+    //     '<label>' +
+    //     '<input type="radio" name="gender" value="other">' +
+    //     '</label> Other<br>';
 
-    if (state.questions.questionIndex == 0 || state.questions.questionIndex == '') {
-    // Opening
+    if (state.questionIndex == 0 || state.questionIndex == '') {
+        // Opening
+        element.empty();
         questionText = state.questions[0]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
-        state.questions.questionIndex = 1;
 
-    // Questions
-    } else if (state.questions.questionIndex < (state.questions.length - 1)) {
+        // score quiz here
+        state.questionIndex = 1;
+
+        // Questions
+    } else if (state.questionIndex < (state.questions.length - 1)) {
         element.empty(); // clear the contents of the page for each question
-        console.log('state index: ' + state.questions.questionIndex);
-        questionText = state.questions[state.questions.questionIndex]['text'];
+        questionText = state.questions[state.questionIndex]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
-        innerHTML += choices;
-        state.questions.questionIndex += 1;
+        // loop over the questions in the array and populate the html
+        for (var i = 0; i < state.questions[state.questionIndex]['answers'].length; i++) {
+            innerHTML += '<input type="radio" name="answer" value="other">' +
+                '</label>' + ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
+        }
+        console.log(innerHTML);
+        state.questionIndex += 1;
 
-    // restart or grade the quiz
+        // restart or grade the quiz
     } else {
         element.empty();
         state.questions.questionIndex = 0;
@@ -83,12 +92,22 @@ var renderQuiz = function (state, element) {
 // Document ready
 $(document).ready(function () {
     // initalize state object
-    state.questions.questionIndex;
     // Event Listeners
     $('.opening-text').on('click', '#go-button', function (event) {
         event.preventDefault();
-        var qIndex = state.questions.questionIndex;
-        console.log(qIndex);
         renderQuiz(state, $('.question-text'));
     });
+
+    // reset the quiz
+    // TODO: add progress bar
+    // TODO: add new text to button instead of start quiz (.val)
+    // TODO: hide button on last question, show re-do question (.toggleClass)
+    // TODO: add final score
 });
+
+// question : "When is a wine ready to be bottled?",
+//     answers:
+// [ { text: "Depends on the winemaking style", correct: true },
+//     { text: "Before it spoils", correct: false },
+//     { text: "When it tastes good", correct: false },
+//     { text: "Spring", correct: false } ]
