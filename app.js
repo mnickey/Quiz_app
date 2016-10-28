@@ -44,18 +44,15 @@ var state = {
 
 // score quiz
 var scoreAnswer = function (state, userChoice) {
+    var myScore = state.score;
     // if the user checks the correct radio button, increase state score by 1
-    if (userChoice == state.questions[state.questionIndex]['correctAnswer']) {
-        console.log("User choice: " + userChoice);
-        console.log("Correct Answer: " + state.questions[state.questionIndex]['correctAnswer']);
-        state.score++;
-        console.log(state.score);
+    if (userChoice == state.questions[state.questionIndex - 1]['correctAnswer']) {
+        myScore += 1;
+        console.log(myScore);
     } else {
-        console.log("User choice: " + userChoice);
-        console.log("Correct Answer: " + state.questions[state.questionIndex]['correctAnswer']);
-        console.log(state.score);
+        // call bad answer function
     }
-    return state.score;
+    return myScore;
 };
 
 // Render function
