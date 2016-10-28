@@ -129,10 +129,3 @@ $(document).ready(function () {
 // TODO: add progress bar
 // TODO: hide button on last question, show re-do question (.toggleClass)
 // TODO: add final score
-
-// question : "When is a wine ready to be bottled?",
-//     answers:
-// [ { text: "Depends on the winemaking style", correct: true },
-//     { text: "Before it spoils", correct: false },
-//     { text: "When it tastes good", correct: false },
-//     { text: "Spring", correct: false } ]
