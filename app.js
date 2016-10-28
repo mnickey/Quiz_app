@@ -53,6 +53,13 @@ var scoreAnswer = function (state, userChoice) {
         } else {
             // call bad answer function
         }
+    } else {
+        // remove button until an item is checked - need event listener
+        if ($('input[name=answer]:checked').size <= 0) {
+            $('#go-button').addClass('hidden');
+        } else {
+            $('#go-button').removeClass('hidden');
+        }
     }
     return myScore;
 };
@@ -73,14 +80,12 @@ var renderQuiz = function (state, element) {
 
         // Questions
     } else if (state.questionIndex < (state.questions.length - 1)) {
-        // remove button until an item is checked
-        if ($('input[name=answer]:checked').size <= 0) {
-            $('#go-button').addClass('hidden');
-        } else {
-            $('#go-button').removeClass('hidden');
-        }
+
+        // Change the text on the button
         $('#go-button').val("Next Question");
-        element.empty(); // clear the contents of the page for each question
+
+        // clear the contents of the page for each question
+        element.empty();
         questionText = state.questions[state.questionIndex]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
 
@@ -99,8 +104,11 @@ var renderQuiz = function (state, element) {
         state.score = scoreAnswer(state, userChoice);
         console.log(state.score);
         element.empty();
-        // state.questionIndex = 0;
-        // state.score = 0;
+
+        // add function call to restart quiz
+        // keep the next two lines uncommented to repeat until function is created
+        state.questionIndex = 0;
+        state.score = 0;
         $('#go-button').val('Restart Quiz');
     }
     element.append(innerHTML);
@@ -116,7 +124,6 @@ $(document).ready(function () {
     });
 });
 
-// TODO: figure out why state.score isn't being incremented
 // TODO: add a way to reset the quiz
 // TODO: add progress bar
 // TODO: hide button on last question, show re-do question (.toggleClass)
