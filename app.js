@@ -80,7 +80,6 @@ var renderQuiz = function (state, element) {
         } else {
             $('#go-button').removeClass('hidden');
         }
-
         $('#go-button').val("Next Question");
         element.empty(); // clear the contents of the page for each question
         questionText = state.questions[state.questionIndex]['text'];
@@ -93,7 +92,7 @@ var renderQuiz = function (state, element) {
                 '</label>' + ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
         }
         // Score each answer
-        scoreAnswer(state, userChoice);
+        state.score = scoreAnswer(state, userChoice);
         // increment index
         state.questionIndex += 1;
 
@@ -114,13 +113,13 @@ $(document).ready(function () {
         event.preventDefault();
         renderQuiz(state, $('.question-text'));
     });
-
-    // TODO: figure out why userChoice is undefined after selecting a radio button until submit is clicked
-    // TODO: add a way to reset the quiz
-    // TODO: add progress bar
-    // TODO: hide button on last question, show re-do question (.toggleClass)
-    // TODO: add final score
 });
+
+// TODO: figure out why state.score isn't being incremented
+// TODO: add a way to reset the quiz
+// TODO: add progress bar
+// TODO: hide button on last question, show re-do question (.toggleClass)
+// TODO: add final score
 
 // question : "When is a wine ready to be bottled?",
 //     answers:
