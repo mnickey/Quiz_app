@@ -45,12 +45,14 @@ var state = {
 // score quiz
 var scoreAnswer = function (state, userChoice) {
     var myScore = state.score;
-    // if the user checks the correct radio button, increase state score by 1
-    if (userChoice == state.questions[state.questionIndex - 1]['correctAnswer']) {
-        myScore += 1;
-        console.log(myScore);
-    } else {
-        // call bad answer function
+    // check for null choice
+    if (userChoice != null) {
+        // if the user checks the correct radio button, increase state score by 1
+        if (userChoice == state.questions[state.questionIndex - 1]['correctAnswer']) {
+            myScore += 1;
+        } else {
+            // call bad answer function
+        }
     }
     return myScore;
 };
@@ -94,9 +96,11 @@ var renderQuiz = function (state, element) {
         state.questionIndex += 1;
 
     } else {
+        state.score = scoreAnswer(state, userChoice);
+        console.log(state.score);
         element.empty();
-        state.questionIndex = 0;
-        state.score = 0;
+        // state.questionIndex = 0;
+        // state.score = 0;
         $('#go-button').val('Restart Quiz');
     }
     element.append(innerHTML);
