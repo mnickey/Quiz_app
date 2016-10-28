@@ -102,6 +102,7 @@ var renderQuiz = function (state, element) {
 
     } else {
         state.score = scoreAnswer(state, userChoice);
+        innerHTML = '<p class="question-text" > You answered ' + state.score + ' questions correctly.</p>';
         console.log(state.score);
         element.empty();
 
