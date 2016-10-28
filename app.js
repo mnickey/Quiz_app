@@ -48,7 +48,7 @@ var scoreAnswer = function (state, userChoice) {
     if (userChoice == state.questions[state.questionIndex]['correctAnswer']) {
         console.log("User choice: " + userChoice);
         console.log("Correct Answer: " + state.questions[state.questionIndex]['correctAnswer']);
-        state.score = state.score + 1;
+        state.score++;
         console.log(state.score);
     } else {
         console.log("User choice: " + userChoice);
@@ -115,7 +115,7 @@ $(document).ready(function () {
         renderQuiz(state, $('.question-text'));
     });
 
-    // TODO: figure out why userChoice is undefined
+    // TODO: figure out why userChoice is undefined after selecting a radio button until submit is clicked
     // TODO: add a way to reset the quiz
     // TODO: add progress bar
     // TODO: hide button on last question, show re-do question (.toggleClass)
