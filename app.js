@@ -53,13 +53,6 @@ var scoreAnswer = function (state, userChoice) {
         } else {
             // call bad answer function
         }
-    } else {
-        // remove button until an item is checked - need event listener
-        if ($('input[type=radio]:checked').size <= 0) {
-            $('#go-button').addClass('hidden').prop('disabled', true);
-        } else {
-            $('#go-button').removeClass('hidden').prop('disabled', false);
-        }
     }
     return myScore;
 };
@@ -87,14 +80,16 @@ var renderQuiz = function (state, element) {
         // clear the contents of the page for each question
         element.empty();
         questionText = state.questions[state.questionIndex]['text'];
-        innerHTML = '<p class="question-text" >' + questionText + '</p>';
+        innerHTML = '<p class="question-text" >' + questionText + '</p><label class="radioChoice">';
 
         // loop over the questions in the array and populate the html
         for (var i = 0; i < state.questions[state.questionIndex]['answers'].length; i++) {
             myValue = state.questions[state.questionIndex]['answers'][i];
-            innerHTML += '<label class="radioChoice"> <input type="radio" name="answer" value=' + myValue + '>' +
-                ' ' + state.questions[state.questionIndex]['answers'][i] + '</label><br>';
+            innerHTML += ' <input type="radio" name="answer" value=' + myValue + '>' +
+                ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
         }
+        innerHTML += '</label>';
+
         // Score each answer
         state.score = scoreAnswer(state, userChoice);
         // increment index
@@ -125,10 +120,15 @@ $(document).ready(function () {
         renderQuiz(state, $('.question-text'));
     });
 
-    // Listen to radio button - hide when none selected
-    $('.question-text').on('click', '#go-button', function(event) {
-        event.preventDefault();
-        $(this).closest('input').find('.submit-btn').toggleClass('hidden');
+    // Listen to radio button - hide submit button when none selected
+    $('.radioChoice input[type=radio]').click(function(state) {
+        if(state.questionIndex > 1) {
+            if ($(this).is(':checked')) {
+                $('#go-button').prop('disabled', false).removeClass('hidden');
+            }
+        } else {
+            $('#go-button').prop('disabled', true).addClass('hidden');
+        }
     })
 });
 

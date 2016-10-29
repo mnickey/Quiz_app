@@ -22,3 +22,11 @@ button:hover {
 .hidden {
     display: none;
 }
+
+.submit-btn {
+    display: none;
+}
+
+.opening-text .radioChoice:checked ~ .submit-btn {
+    display: block;
+}
