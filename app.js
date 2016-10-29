@@ -55,7 +55,7 @@ var scoreAnswer = function (state, userChoice) {
         }
     } else {
         // remove button until an item is checked - need event listener
-        if ($('input[name=answer]:checked').size <= 0) {
+        if ($('input[type=radio]:checked').size <= 0) {
             $('#go-button').addClass('hidden');
         } else {
             $('#go-button').removeClass('hidden');
@@ -119,10 +119,17 @@ var renderQuiz = function (state, element) {
 $(document).ready(function () {
 
     // Event Listeners
+    // Listen to Go Button
     $('.opening-text').on('click', '#go-button', function (event) {
         event.preventDefault();
         renderQuiz(state, $('.question-text'));
     });
+
+    // Listen to radio button - hide when none selected
+    $('.question-text').on('click', '#go-button', function(event) {
+        event.preventDefault();
+        $(this).closest('input').find('.submit-btn').toggleClass('hidden');
+    })
 });
 
 // TODO: add a way to reset the quiz
