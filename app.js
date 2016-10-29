@@ -56,9 +56,9 @@ var scoreAnswer = function (state, userChoice) {
     } else {
         // remove button until an item is checked - need event listener
         if ($('input[type=radio]:checked').size <= 0) {
-            $('#go-button').addClass('hidden');
+            $('#go-button').addClass('hidden').prop('disabled', true);
         } else {
-            $('#go-button').removeClass('hidden');
+            $('#go-button').removeClass('hidden').prop('disabled', false);
         }
     }
     return myScore;
@@ -92,8 +92,8 @@ var renderQuiz = function (state, element) {
         // loop over the questions in the array and populate the html
         for (var i = 0; i < state.questions[state.questionIndex]['answers'].length; i++) {
             myValue = state.questions[state.questionIndex]['answers'][i];
-            innerHTML += '<input type="radio" name="answer" value=' + myValue + '>' +
-                '</label>' + ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
+            innerHTML += '<label class="radioChoice"> <input type="radio" name="answer" value=' + myValue + '>' +
+                ' ' + state.questions[state.questionIndex]['answers'][i] + '</label><br>';
         }
         // Score each answer
         state.score = scoreAnswer(state, userChoice);
