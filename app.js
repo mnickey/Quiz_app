@@ -54,6 +54,7 @@ var scoreAnswer = function (state, userChoice) {
             // call bad answer function
         }
     }
+    console.log(myScore);
     return myScore;
 };
 
@@ -69,7 +70,9 @@ var renderQuiz = function (state, element) {
         questionText = state.questions[0]['text'];
         innerHTML = '<p class="question-text" >' + questionText + '</p>';
         state.questionIndex = 1;
-        $('#go-button').val("Let's begin");
+        // innerHTML += '<input class="btn btn-primary submit-btn" id="go-button2" type="submit" value="go button2">';
+        event.preventDefault();
+        element.append(innerHTML);
 
         // Questions
     } else if (state.questionIndex < (state.questions.length - 1)) {
@@ -80,7 +83,7 @@ var renderQuiz = function (state, element) {
         // clear the contents of the page for each question
         element.empty();
         questionText = state.questions[state.questionIndex]['text'];
-        innerHTML = '<p class="question-text" >' + questionText + '</p><label class="radioChoice">';
+        innerHTML = '<p class="question-text" >' + questionText + '</p><label class="radioChoice" id="rChoice">';
 
         // loop over the questions in the array and populate the html
         for (var i = 0; i < state.questions[state.questionIndex]['answers'].length; i++) {
@@ -89,25 +92,30 @@ var renderQuiz = function (state, element) {
                 ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
         }
         innerHTML += '</label>';
+        // $('#go-button').addClass('hidden');
 
         // Score each answer
         state.score = scoreAnswer(state, userChoice);
         // increment index
         state.questionIndex += 1;
+        // innerHTML += '<input class="btn btn-primary submit-btn" id="go-button2" type="submit" value="go button2">';
+        element.append(innerHTML);
 
     } else {
         state.score = scoreAnswer(state, userChoice);
         innerHTML = '<p class="question-text" > You answered ' + state.score + ' questions correctly.</p>';
-        console.log(state.score);
+        // console.log(state.score);
         element.empty();
 
         // add function call to restart quiz
         // keep the next two lines uncommented to repeat until function is created
         state.questionIndex = 0;
         state.score = 0;
+        // innerHTML += '<input class="btn btn-primary submit-btn" id="go-button2" type="submit" value="go button2">';
         $('#go-button').val('Restart Quiz');
+        element.append(innerHTML);
     }
-    element.append(innerHTML);
+    // element.append(innerHTML);
 };
 
 // Document ready
@@ -130,7 +138,28 @@ $(document).ready(function () {
         } else {
             $('#go-button').prop('disabled', true).addClass('hidden');
         }
-    })
+    });
+
+    // JQuery validation
+    $("form[name='myForm']").validate({
+        // Specify validation rules
+        rules: {
+            // The key name on the left side is the name attribute
+            // of an input field. Validation rules are defined
+            // on the right side
+            answer: "required"
+        },
+        // Specify validation error messages
+        messages: {
+            answer: "Please select an option"
+        }
+        // Make sure the form is submitted to the destination defined
+        // in the "action" attribute of the form when valid
+        // submitHandler: function(form) {
+        //     form.submit();
+        // }
+    });
+
 });
 
 // TODO: add a way to reset the quiz

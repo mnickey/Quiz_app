@@ -6,24 +6,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
 <div class="container">
     <h1>Quiz App</h1>
     <div class="opening-text">
-        <form class="question-form">
+        <form class="question-form" name="myForm" action="">
             <p class="question-text">Hawaii Quiz</p>
-            <input class="btn btn-primary submit-btn" id="go-button" type="submit" value="Start Quiz">
+
+                <input class="btn btn-primary submit-btn" id="go-button" type="submit" value="go button">
+
         </form>
     </div>
 </div>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!--<script src="//code.jquery.com/jquery-2.2.3.min.js"></script>-->
+
+<!--<scripts>-->
 <script src="//code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
+<!--<script src="form-validation.js"></script>-->
 <script src="app.js"></script>
 
 </body>
