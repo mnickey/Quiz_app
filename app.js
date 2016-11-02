@@ -98,7 +98,6 @@ var renderQuiz = function (state, element) {
         state.score = scoreAnswer(state, userChoice);
         // increment index
         state.questionIndex += 1;
-        // innerHTML += '<input class="btn btn-primary submit-btn" id="go-button2" type="submit" value="go button2">';
         element.append(innerHTML);
 
     } else {
@@ -111,53 +110,50 @@ var renderQuiz = function (state, element) {
         // keep the next two lines uncommented to repeat until function is created
         state.questionIndex = 0;
         state.score = 0;
-        // innerHTML += '<input class="btn btn-primary submit-btn" id="go-button2" type="submit" value="go button2">';
         $('#go-button').val('Restart Quiz');
         element.append(innerHTML);
     }
     // element.append(innerHTML);
 };
 
+// Event Listeners
+// Listen to Go Button
+$('.opening-text').on('click', '#go-button', function (event) {
+    event.preventDefault();
+    renderQuiz(state, $('.question-text'));
+});
+
+// Listen to radio button - hide submit button when none selected
+$('.radioChoice').on('click', 'input[type="radio"]', function(event) {
+    event.preventDefault();
+    if(state.questionIndex > 1) {
+        if ($(this).is(':checked')) {
+            $('#go-button').prop('disabled', false).removeClass('hidden');
+        }
+    } else {
+        $('#go-button').prop('disabled', true).addClass('hidden');
+    }
+});
+
 // Document ready
 $(document).ready(function () {
-
-    // Event Listeners
-    // Listen to Go Button
-    $('.opening-text').on('click', '#go-button', function (event) {
-        event.preventDefault();
-        renderQuiz(state, $('.question-text'));
-    });
-
-    // Listen to radio button - hide submit button when none selected
-    $('.radioChoice').on('click', 'input[type="radio"]', function(event) {
-        event.preventDefault();
-        if(state.questionIndex > 1) {
-            if ($(this).is(':checked')) {
-                $('#go-button').prop('disabled', false).removeClass('hidden');
-            }
-        } else {
-            $('#go-button').prop('disabled', true).addClass('hidden');
-        }
-    });
+    console.log('asdasd');
 
     // JQuery validation
     $("form[name='myForm']").validate({
         // Specify validation rules
         rules: {
-            // The key name on the left side is the name attribute
-            // of an input field. Validation rules are defined
-            // on the right side
             answer: "required"
         },
         // Specify validation error messages
         messages: {
             answer: "Please select an option"
-        }
+        },
         // Make sure the form is submitted to the destination defined
         // in the "action" attribute of the form when valid
-        // submitHandler: function(form) {
-        //     form.submit();
-        // }
+        submitHandler: function(form) {
+            form.submit();
+        }
     });
 
 });
