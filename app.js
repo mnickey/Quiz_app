@@ -85,7 +85,7 @@ var renderQuiz = function (state, element) {
         // loop over the questions in the array and populate the html
         for (var i = 0; i < state.questions[state.questionIndex]['answers'].length; i++) {
             myValue = state.questions[state.questionIndex]['answers'][i];
-            innerHTML += ' <input type="radio" name="answer" value=' + myValue + '>' +
+            innerHTML += ' <input type="radio" name="answer" value="' + myValue + '" required >' +
                 ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
         }
         innerHTML += '</label>';
@@ -121,7 +121,8 @@ $(document).ready(function () {
     });
 
     // Listen to radio button - hide submit button when none selected
-    $('.radioChoice input[type=radio]').click(function(state) {
+    $('.radioChoice').on('click', 'input[type="radio"]', function(event) {
+        event.preventDefault();
         if(state.questionIndex > 1) {
             if ($(this).is(':checked')) {
                 $('#go-button').prop('disabled', false).removeClass('hidden');
