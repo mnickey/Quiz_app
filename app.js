@@ -88,7 +88,7 @@ var renderQuiz = function (state, element) {
         // loop over the questions in the array and populate the html
         for (var i = 0; i < state.questions[state.questionIndex]['answers'].length; i++) {
             myValue = state.questions[state.questionIndex]['answers'][i];
-            innerHTML += ' <input type="radio" name="answer" value="' + myValue + '" required >' +
+            innerHTML += ' <input class="radioChoice" type="radio" name="answer" value="' + myValue + '" required >' +
                 ' ' + state.questions[state.questionIndex]['answers'][i] + '<br>';
         }
         innerHTML += '</label>';
@@ -124,37 +124,38 @@ $('.opening-text').on('click', '#go-button', function (event) {
 });
 
 // Listen to radio button - hide submit button when none selected
-$('.radioChoice').on('click', 'input[type="radio"]', function(event) {
+$('.radioChoice').on('click', 'input[type=radio]', function(event, state) {
     event.preventDefault();
-    if(state.questionIndex > 1) {
-        if ($(this).is(':checked')) {
-            $('#go-button').prop('disabled', false).removeClass('hidden');
-        }
-    } else {
-        $('#go-button').prop('disabled', true).addClass('hidden');
-    }
+    console.log('sqi: ' + state.questionIndex);
+    // if(state.questionIndex > 1) {
+    //     if ($(this).is(':checked')) {
+    //         $('#go-button').prop('disabled', false).removeClass('hidden');
+    //     }
+    // } else {
+    //     $('#go-button').prop('disabled', true).addClass('hidden');
+    // }
 });
 
 // Document ready
 $(document).ready(function () {
     console.log('asdasd');
 
-    // JQuery validation
-    $("form[name='myForm']").validate({
-        // Specify validation rules
-        rules: {
-            answer: "required"
-        },
-        // Specify validation error messages
-        messages: {
-            answer: "Please select an option"
-        },
-        // Make sure the form is submitted to the destination defined
-        // in the "action" attribute of the form when valid
-        submitHandler: function(form) {
-            form.submit();
-        }
-    });
+    // // JQuery validation
+    // $("form[name='myForm']").validate({
+    //     // Specify validation rules
+    //     rules: {
+    //         answer: "required"
+    //     },
+    //     // Specify validation error messages
+    //     messages: {
+    //         answer: "Please select an option"
+    //     },
+    //     // Make sure the form is submitted to the destination defined
+    //     // in the "action" attribute of the form when valid
+    //     submitHandler: function(form) {
+    //         form.submit();
+    //     }
+    // });
 
 });
 
