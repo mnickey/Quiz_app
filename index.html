@@ -5,25 +5,59 @@
     <title>Quiz App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!--Local stylesheet-->
     <link rel="stylesheet" href="styles.css">
+    <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
-<div class="container">
-    <h1>Quiz App</h1>
-    <div class="opening-text">
-        <form class="question-form" name="myForm" action="">
-            <p class="question-text">Hawaii Quiz</p>
+<div id="container">
+    <header>
+        <h1>Simple JavaScript Quiz</h1>
+        <p>Test your knowledge in <strong>JavaScript fundamentals</strong></p>
+    </header>
+    <section>
+        <div id="results"></div>
+        <form name="quizForm" onsubmit="return submitAnswers()">
+            <h3>1. In which HTML element do we put in JavaScript code?</h3>
+            <input type="radio" name="q1" value="a" id="q1a">a. &lt;js&gt;<br>
+            <input type="radio" name="q1" value="b" id="q1b">b. &lt;script&gt;<br>
+            <input type="radio" name="q1" value="c" id="q1c">c. &lt;body&gt;<br>
+            <input type="radio" name="q1" value="d" id="q1d">d. &lt;link&gt;<br>
 
-            <input class="btn btn-primary submit-btn" id="go-button" type="submit" value="go button">
+            <h3>2. Which HTML attribute is used to reference an external JavaScript file?</h3>
+            <input type="radio" name="q2" value="a" id="q2a">a. src<br>
+            <input type="radio" name="q2" value="b" id="q2b">b. rel<br>
+            <input type="radio" name="q2" value="c" id="q2c">c. type<br>
+            <input type="radio" name="q2" value="d" id="q2d">d. href<br>
 
+            <h3>3. How would you write "Hello" in an alert box?</h3>
+            <input type="radio" name="q3" value="a" id="q3a">a. msg("Hello");<br>
+            <input type="radio" name="q3" value="b" id="q3b">b. alertBox("Hello");<br>
+            <input type="radio" name="q3" value="c" id="q3c">c. document.write("Hello");<br>
+            <input type="radio" name="q3" value="d" id="q3d">d. alert("Hello");<br>
+
+            <h3>4. JavaScript is directly related to the "Java" programming language</h3>
+            <input type="radio" name="q4" value="a" id="q4a">a. True<br>
+            <input type="radio" name="q4" value="b" id="q4b">b. False<br>
+
+            <h3>5. A variable in JavaScript must start with which special character</h3>
+            <input type="radio" name="q5" value="a" id="q5a">a. @<br>
+            <input type="radio" name="q5" value="b" id="q5b">b. $<br>
+            <input type="radio" name="q5" value="c" id="q5c">c. #<br>
+            <input type="radio" name="q5" value="d" id="q5d">d. No Special Character<br>
+            <br><br>
+            <input type="submit" value="Submit Answers">
         </form>
-    </div>
-</div>
+    </section>
+    <footer>
+        <p>Copyright &copy; 2016, All Rights Reserved</p>
+    </footer>
 
 <!--<scripts>-->
+<!--JQuery-->
 <script src="//code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
