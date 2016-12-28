@@ -14,12 +14,12 @@ function submitAnswers() {
     var q5 = document.forms["quizForm"]["q5"].value;
 
     // Validation
-    for (var valid = 1; valid <= total; valid++) {
-        if (eval('q' + valid) == null || eval('q' + valid) == '') {
-            alert('You missed question ' + valid);
-            return false;
-        }
-    }
+    // for (var valid = 1; valid <= total; valid++) {
+    //     if (eval('q' + valid) == null || eval('q' + valid) == '') {
+    //         alert('You missed question ' + valid);
+    //         return false;
+    //     }
+    // }
 
     // Set Correct Answers
     var answers = ["b", "a", "d", "b", "d"];
@@ -32,15 +32,22 @@ function submitAnswers() {
     }
 
     // Display Results
-    var results = document.getElementById('results');
-    results.innerHTML = '<h3>You scored <span>' + score + '</span> out of <span>' + total + '</span></h3>';
-    alert('You scored ' + score + ' out of ' + total);
+//     var results = document.getElementById('results');
+//     results.innerHTML = '<h3>You scored <span>' + score + '</span> out of <span>' + total + '</span></h3>';
+//     alert('You scored ' + score + ' out of ' + total);
+//     return false;
 
-    return false;
 }
 
-// Document ready
-$(document).ready(function () {
-    console.log('asdasd');
+// submit-btn preventing default action and changing text
+$('.submit-btn').click(function(event) {
+    console.log('a click occured');
+    $(this).val("Display next question");
+    event.preventDefault();
+
 });
+
+
+
+
 
