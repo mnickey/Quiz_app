@@ -45,6 +45,10 @@ $('.submit-btn').click(function(event) {
     $(this).val("Display next question");
     event.preventDefault();
 
+    // var index = $(this).index();
+    // console.log(index);
+
+    $('div').indexOf(3).toggleClass('hidden');
 });
 
 
