@@ -2,7 +2,7 @@
  * Created by MNickey on 12/27/16.
  */
 
-function submitAnswers(){
+function submitAnswers() {
     var total = 5;
     var score = 0;
 
@@ -14,27 +14,27 @@ function submitAnswers(){
     var q5 = document.forms["quizForm"]["q5"].value;
 
     // Validation
-    for(i = 1; i <= total;i++){
-        if(eval('q'+i) == null || eval('q'+i) == ''){
-            alert('You missed question '+ i);
+    for (var valid = 1; valid <= total; valid++) {
+        if (eval('q' + valid) == null || eval('q' + valid) == '') {
+            alert('You missed question ' + valid);
             return false;
         }
     }
 
     // Set Correct Answers
-    var answers = ["b","a","d","b","d"];
+    var answers = ["b", "a", "d", "b", "d"];
 
     // Check Answers
-    for(i = 1; i <= total;i++){
-        if(eval('q'+i) == answers[i - 1]){
+    for (var check = 1; check <= total; check++) {
+        if (eval('q' + check) == answers[check - 1]) {
             score++;
         }
     }
 
     // Display Results
     var results = document.getElementById('results');
-    results.innerHTML = '<h3>You scored <span>'+score+'</span> out of <span>'+total+'</span></h3>';
-    alert('You scored '+score+' out of ' +total);
+    results.innerHTML = '<h3>You scored <span>' + score + '</span> out of <span>' + total + '</span></h3>';
+    alert('You scored ' + score + ' out of ' + total);
 
     return false;
 }
