@@ -56,13 +56,15 @@ $('.submit-btn').click(function (event) {
     console.log('a click occured');
     $(this).val("Display next question");
     event.preventDefault();
-    console.log(state.count);
 
-    // $('div').indexOf(3).toggleClass('hidden');
-});
-
-$('.btn').addEventListener('click', (state) => {
+    // console.log(state.count);
     divs.forEach(ea => ea.classList.add('hidden'));
     state.count = state.count < divs.length - 1 ? state.count + 1: 0;
     divs[state.count].classList.remove('hidden');
 });
+
+// $('.btn').addEventListener('click', function (state) {
+    // divs.forEach(ea => ea.classList.add('hidden'));
+    // state.count = state.count < divs.length - 1 ? state.count + 1: 0;
+    // divs[state.count].classList.remove('hidden');
+// });
