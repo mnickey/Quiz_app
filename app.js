@@ -68,3 +68,4 @@ $('.submit-btn').click(function (event) {
     // state.count = state.count < divs.length - 1 ? state.count + 1: 0;
     // divs[state.count].classList.remove('hidden');
 // });
+
