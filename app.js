@@ -51,14 +51,25 @@ function submitAnswers() {
 
 }
 
+function changeButtonText(state) {
+    if (state.count >= 1) {
+        $('.submit-btn').val('Display next question');
+    }
+    else {
+        $('.submit-btn').val('asdasd');
+    }
+}
+
 // submit-btn preventing default action and changing text
 $('.submit-btn').click(function (event) {
     $(this).val("Display next question");
+    // $(this).val(changeButtonText(state));
     event.preventDefault();
 
     divs.forEach(ea => ea.classList.add('hidden'));
     state.count = state.count < divs.length - 1 ? state.count + 1: 0;
     divs[state.count].classList.remove('hidden');
+    console.log(state.count);
 });
 
 // $('.btn').addEventListener('click', function (state) {
