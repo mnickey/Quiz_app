@@ -44,21 +44,25 @@ function submitAnswers() {
 
 // Display Results
 
-//     var results = document.getElementById('results');
-//     results.innerHTML = '<h3>You scored <span>' + score + '</span> out of <span>' + total + '</span></h3>';
-//     alert('You scored ' + score + ' out of ' + total);
-//     return false;
-
+    let results = document.getElementById('score');
+    results.innerHTML = '<h3>You scored <span>' + score + '</span> out of <span>' + total + '</span></h3>';
+    alert('You scored ' + score + ' out of ' + total);
+    return false;
 }
 
 function changeButtonText(state) {
-    if (state.count >= 1 && state.count < 5) {
+    if (state.count <= 1 && state.count < 5) {
         console.log('IF: The state.count is ' + state.count);
         $('.submit-btn').val('Display next question');
     }
-    else {
-        console.log('ELSE: The state.count is ' + state.count);
+    else if (state.count == 5) {
+        console.log('ELSE IF: The state.count is ' + state.count);
         $('.submit-btn').val('show score');
+    }
+    else if (state.count > 5) {
+        console.log('ELSE: the state.count is ' + state.count);
+        $('.submit-btn').val('retake quiz');
+        state.count = 0;
     }
 }
 
