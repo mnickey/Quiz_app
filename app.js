@@ -25,12 +25,12 @@ function submitAnswers() {
 
     // Validation
 
-    // for (var valid = 1; valid <= total; valid++) {
-    //     if (eval('q' + valid) == null || eval('q' + valid) == '') {
-    //         alert('You missed question ' + valid);
-    //         return false;
-    //     }
-    // }
+    for (let valid = 1; valid <= total; valid++) {
+        if (eval('q' + valid) == null || eval('q' + valid) == '') {
+            alert('You missed question ' + valid);
+            return false;
+        }
+    }
 
     // Set Correct Answers
     let answers = ["b", "a", "d", "b", "d"];
@@ -53,11 +53,9 @@ function submitAnswers() {
 
 // submit-btn preventing default action and changing text
 $('.submit-btn').click(function (event) {
-    console.log('a click occured');
     $(this).val("Display next question");
     event.preventDefault();
 
-    // console.log(state.count);
     divs.forEach(ea => ea.classList.add('hidden'));
     state.count = state.count < divs.length - 1 ? state.count + 1: 0;
     divs[state.count].classList.remove('hidden');
