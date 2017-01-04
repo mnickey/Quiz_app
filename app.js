@@ -59,6 +59,8 @@ function checkAnswer(state) {
     let q4 = document.forms["quizForm"]["q4"].value;
     let q5 = document.forms["quizForm"]["q5"].value;
 
+    state.score = 0;
+
     for (let check = 1; check <= state.total; check++) {
         if (eval('q' + check) == state.answers[check - 1]) {
             state.score++;
