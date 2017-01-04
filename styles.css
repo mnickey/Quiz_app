@@ -3,31 +3,28 @@
     margin: 10px;
 }
 
-/*body {*/
-    /*font-family: 'Roboto', sans-serif;*/
-/*}*/
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: gainsboro;
+}
 
-/*button, input[type="text"] {*/
-    /*padding: 5px;*/
-/*}*/
+button, input[type="text"] {
+    padding: 5px;
+}
 
-/*button:hover {*/
-    /*cursor: pointer;*/
-/*}*/
+button:hover {
+    cursor: pointer;
+}
 
-/*.container {*/
-    /*max-width: 600px;*/
-    /*margin: 0 auto;*/
-/*}*/
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px dashed #ff0000;
+    border-radius: 5%;
+    border-spacing: inherit;
+}
 
-/*.hidden {*/
-    /*display: none;*/
-/*}*/
-
-/*.submit-btn {*/
-    /*display: none;*/
-/*}*/
-
-/*.quizForm .radioChoice:checked ~ .submit-btn {*/
-    /*display: block;*/
-/*}*/
+.quizForm .radioChoice:checked ~ .submit-btn {
+    display: block;
+    float: left;
+}
