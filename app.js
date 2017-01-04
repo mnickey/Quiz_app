@@ -82,8 +82,10 @@ $('.submit-btn').click(function (event) {
     changeButtonText(state);
 });
 
+$('.quizForm input[type=radio]').click(function () {
+    $('.submit-btn').removeClass('hidden');
+});
+
 $(document).ready(function () {
-    $('#quizForm input[type=radio]').click(function () {
-        $('.submit-btn').removeClass('hidden');
-    });
+    console.log('ready!');
 });
