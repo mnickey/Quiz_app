@@ -12,12 +12,16 @@ let state = {
 };
 
 // Validation
-// for (let valid = 1; valid <= total; valid++) {
-//     if (eval('q' + valid) == null || eval('q' + valid) == '') {
-//         alert('You missed question ' + valid);
-//         return false;
-//     }
-// }
+function validateAnswer(state) {
+    for (let valid = 1; valid <= state.total; valid++) {
+        if (eval('q' + state.count) == '' || eval('q' + state.count) == '') {
+            $('.submit-btn').addClass('hidden');
+        }
+        else if (eval('q' + state.count)) {
+            $('submit-btn').removeClass('hidden');
+        }
+    }
+}
 
 // Display Score
 function displayScore(state) {
@@ -39,7 +43,6 @@ function checkAnswer(state) {
             state.score++;
         }
     }
-    console.log('score: ' + state.score);
     return state.score;
 }
 
@@ -50,11 +53,14 @@ function resetQuiz(state) {
 }
 
 function changeButtonText(state) {
-    if (state.count <= 1 && state.count < 5) {
+    if (state.count < 1) {
         $('.submit-btn').val('Display next question');
     }
+    else if (state.count >= 1 && state.count < 5) {
+        $('.submit-btn').addClass('hidden').val('Display next question');
+    }
     else if (state.count == 5) {
-        $('.submit-btn').val('show score');
+        $('.submit-btn').addClass('hidden').val('show score');
     }
     else if (state.count > 5) {
         $('.submit-btn').val('retake quiz');
@@ -72,5 +78,12 @@ $('.submit-btn').click(function (event) {
     divs[state.count].classList.remove('hidden');
 
     checkAnswer(state);
+    validateAnswer(state);
     changeButtonText(state);
+});
+
+$(document).ready(function () {
+    $('#quizForm input[type=radio]').click(function () {
+        $('.submit-btn').removeClass('hidden');
+    });
 });
