@@ -70,12 +70,12 @@ function changeButtonText(state) {
 }
 
 function moveProgressBar(state) {
-    let elem = document.getElementsByClassName("progress");
+    let elem = document.getElementsByClassName("progress")[0];
     let prog = state.count - 1;
     let value = ((prog / state.total) * 100) + '%';
     // console.log(typeof(value));
-    elem.innerHTML = '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" ' +
-        'aria-valuemax="100" style=${value}></div>';
+    elem.innerHTML = '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' + value +
+        '" aria-valuemin="0" aria-valuemax="100" style="width:' + value + '"> ' + value + '</div>';
 }
 
 // submit-btn preventing default action and changing text
