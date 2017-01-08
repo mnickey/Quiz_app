@@ -69,6 +69,14 @@ function changeButtonText(state) {
     }
 }
 
+function moveProgressBar(state) {
+    let elem = document.getElementsByClassName("progress");
+    let prog = state.count - 1;
+    let value = ((prog / state.total) * 100) + '%';
+    // console.log(typeof(value));
+    elem.innerHTML = '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=value>';
+}
+
 // submit-btn preventing default action and changing text
 $('.submit-btn').click(function (event) {
     event.preventDefault();
@@ -79,6 +87,7 @@ $('.submit-btn').click(function (event) {
 
     checkAnswer(state);
     validateAnswer(state);
+    moveProgressBar(state);
     changeButtonText(state);
 });
 

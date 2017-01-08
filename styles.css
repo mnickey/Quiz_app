@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    margin: 10px;
+    /*margin: 10px;*/
 }
 
 body {
@@ -28,3 +28,4 @@ button:hover {
     display: block;
     float: left;
 }
+
