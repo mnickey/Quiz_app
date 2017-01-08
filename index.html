@@ -20,7 +20,7 @@
 <!--<script src="http://code.jquery.com/jquery-3.1.1.min.js"-->
         <!--integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>-->
 
-<div id="container">
+<div class="col-md-6 center-block" id="container">
     <header>
         <h1>Simple JavaScript Quiz</h1>
         <p>Test your knowledge in JavaScript fundamentals</p>
@@ -30,13 +30,13 @@
         <div class="question-form" id="results"></div>
 
         <form name="quizForm" class="quizForm">
-            <div class="container">
+            <div class="container col-md-6">
 
-                <div class="q0" id="q0">
+                <div class="q0 row col-md-6" id="q0">
                     <p>This is the splash page</p>
                 </div>
 
-                <div class="q1 hidden" id="q1">
+                <div class="q1 row col-md-6 hidden" id="q1">
                     <label for="q1">
                         1. In which HTML element do we put in JavaScript code?<br>
                         <input type="radio" name="q1" value="a" id="q1a">a. &lt;js&gt;<br>
@@ -46,7 +46,7 @@
                     </label>
                 </div>
 
-                <div class="q2 hidden " id="q2">
+                <div class="q2 row col-md-6 hidden " id="q2">
                     <label for="q2">
                         2. Which HTML attribute is used to reference an external JavaScript file?<br>
                         <input type="radio" name="q2" value="a" id="q2a">a. src<br>
