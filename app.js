@@ -74,7 +74,8 @@ function moveProgressBar(state) {
     let prog = state.count - 1;
     let value = ((prog / state.total) * 100) + '%';
     // console.log(typeof(value));
-    elem.innerHTML = '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=value>';
+    elem.innerHTML = '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" ' +
+        'aria-valuemax="100" style=${value}></div>';
 }
 
 // submit-btn preventing default action and changing text
