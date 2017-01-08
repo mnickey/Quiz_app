@@ -15,28 +15,27 @@
 </head>
 
 <body>
-
-<!--JQuery-->
-<!--<script src="http://code.jquery.com/jquery-3.1.1.min.js"-->
-        <!--integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>-->
-
-<div class="col-md-6 center-block" id="container">
+<div class="col-sm-6 col-md-4 center-block" id="container">
     <header>
         <h1>Simple JavaScript Quiz</h1>
         <p>Test your knowledge in JavaScript fundamentals</p>
     </header>
 
     <section>
+        <div class="progress"></div>
+    </section>
+
+    <section>
         <div class="question-form" id="results"></div>
 
         <form name="quizForm" class="quizForm">
-            <div class="container col-md-6">
+            <div class="container col-sm-6 col-md-4">
 
                 <div class="q0 row col-md-6" id="q0">
                     <p>This is the splash page</p>
                 </div>
 
-                <div class="q1 row col-md-6 hidden" id="q1">
+                <div class="q1 row col-sm-6 col-md-4 hidden" id="q1">
                     <label for="q1">
                         1. In which HTML element do we put in JavaScript code?<br>
                         <input type="radio" name="q1" value="a" id="q1a">a. &lt;js&gt;<br>
@@ -46,7 +45,7 @@
                     </label>
                 </div>
 
-                <div class="q2 row col-md-6 hidden " id="q2">
+                <div class="q2 row col-sm-6 col-md-4 hidden " id="q2">
                     <label for="q2">
                         2. Which HTML attribute is used to reference an external JavaScript file?<br>
                         <input type="radio" name="q2" value="a" id="q2a">a. src<br>
@@ -56,7 +55,7 @@
                     </label>
                 </div>
 
-                <div class="q3 hidden" id="q3">
+                <div class="q3 col-sm-6 col-md-4 hidden" id="q3">
                     <label for="q3">
                         3. How would you write "Hello" in an alert box?<br>
                         <input type="radio" name="q3" value="a" id="q3a">a. msg("Hello");<br>
@@ -66,7 +65,7 @@
                     </label>
                 </div>
 
-                <div class="q4 hidden" id="q4">
+                <div class="q4 col-sm-6 col-md-4 hidden" id="q4">
                     <label for="q4">
                         4. Which operator is used to assign a value to a variable?<br>
                         <input type="radio" name="q4" value="a" id="q4a">a. *<br>
@@ -76,7 +75,7 @@
                     </label>
                 </div>
 
-                <div class="q5 hidden" id="q5">
+                <div class="q5 col-sm-6 col-md-4 hidden" id="q5">
                     <label for="q5">
                         5. A variable in JavaScript must start with which special character<br>
                         <input type="radio" name="q5" value="a" id="q5a">a. @<br>
@@ -86,7 +85,7 @@
                     </label>
                 </div>
 
-                <div class="q6 hidden score" id="q6">
+                <div class="q6 col-sm-6 col-md-4 hidden score" id="q6">
                     <label for="q6">scoring div</label>
                 </div>
 
@@ -94,11 +93,6 @@
                 <input class="btn btn-primary submit-btn" type="submit" value="Continue to quiz">
             </div>
         </form>
-
-        <div class="progress">
-
-        </div>
-
     </section>
 
     <footer>
