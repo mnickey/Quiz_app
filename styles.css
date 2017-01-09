@@ -17,11 +17,11 @@ button:hover {
 }
 
 .container {
-    max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     border: 1px dashed #ff0000;
     border-radius: 5%;
-    border-spacing: inherit;
+    /*border-spacing: inherit;*/
 }
 
 .quizForm .radioChoice:checked ~ .submit-btn {
@@ -32,4 +32,11 @@ button:hover {
 .progress {
     /*float: top;*/
     /*color: gainsboro;*/
+}
+
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
 }
