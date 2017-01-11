@@ -12,15 +12,24 @@ button:hover {
     cursor: pointer;
 }
 
-.container {
+.btn {
+    margin-top: 5px;
+}
+
+div .container {
     width: 100%;
+    margin: 1px 1px;
     border: 1px dashed #ff0000;
     border-radius: 5%;
 }
 
+div .row {
+    width: 100%;
+    padding: 5px;
+}
+
 .quizForm .radioChoice:checked ~ .submit-btn {
     display: block;
-    /*float: left;*/
 }
 
 footer {
