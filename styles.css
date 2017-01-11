@@ -9,9 +9,10 @@ body {
     background-image: url("background.jpg");
 }
 
-.wrapper {
-    background-color: gainsboro;
-    background:rgba(0,0,0,0.7)!important;
+#container {
+    background-color: rgba(100, 0, 28, 0.45);
+    padding-bottom: 30px;
+    padding-top: 20px;
 }
 
 button:hover {
