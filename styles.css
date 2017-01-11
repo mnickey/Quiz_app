@@ -28,15 +28,12 @@ button:hover {
 div .container {
     width: 100%;
     margin: 1px 1px;
-    /*border: 1px dashed #ff0000;*/
-    /*border-radius: 5%;*/
     color: #ffff00;
 }
 
 div .row {
     width: 100%;
     padding: 5px;
-    /*background-color: slategrey;*/
     background-color: transparent;
 }
 
@@ -87,10 +84,6 @@ input[type="radio"]:checked + label span {
     padding-bottom: 25px;
 }
 
-.open-text {
-    color: #ffff00;
-}
-
-footer {
+.open-text, footer {
     color: #ffff00;
 }
