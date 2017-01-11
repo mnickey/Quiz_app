@@ -9,6 +9,11 @@ body {
     background-image: url("background.jpg");
 }
 
+.wrapper {
+    background-color: gainsboro;
+    background:rgba(0,0,0,0.7)!important;
+}
+
 button:hover {
     cursor: pointer;
 }

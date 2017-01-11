@@ -17,107 +17,109 @@
 <body>
 <img class="hero" src="js.png">
 <img class="hero2" src="js.png">
-<div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" id="container">
-    <header class="open-text">
-        <h1>Simple JavaScript Quiz</h1>
-        <p>Test your knowledge in JavaScript fundamentals</p>
-    </header>
+<div class="wrapper">
+    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" id="container">
+        <header class="open-text">
+            <h1>Simple JavaScript Quiz</h1>
+            <p>Test your knowledge in JavaScript fundamentals</p>
+        </header>
 
-    <section>
-        <div class="progress "></div>
-    </section>
+        <section>
+            <div class="progress "></div>
+        </section>
 
-    <section>
-        <div class="question-form" id="results"></div>
+        <section>
+            <div class="question-form" id="results"></div>
 
-        <form name="quizForm" class="quizForm">
-            <div class="container col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                <!--To determine the offset, use a 12 column grid. Offset formula: (total columns - columns used) / 2-->
-                <!--Therefore, this the medium column centered with an offset is (12 - 4) / 2-->
-                <div class="q0 row " id="q0">
-                    <p>This is the splash page</p>
+            <form name="quizForm" class="quizForm">
+                <div class="container col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                    <!--To determine the offset, use a 12 column grid. Offset formula: (total columns - columns used) / 2-->
+                    <!--Therefore, this the medium column centered with an offset is (12 - 4) / 2-->
+                    <div class="q0 row " id="q0">
+                        <p>This is the splash page</p>
+                    </div>
+
+                    <div class="q1 row hidden" id="q1">
+                        <p>1. In which HTML element do we put in JavaScript code?</p>
+                        <input type="radio" name="q1" value="a" id="q1a">
+                        <label for="q1a"><span></span> &lt;js&gt;</label><br>
+                        <input type="radio" name="q1" value="b" id="q1b">
+                        <label for="q1b"><span></span>b. &lt;script&gt;</label><br>
+                        <input type="radio" name="q1" value="c" id="q1c">
+                        <label for="q1c"><span></span>c. &lt;body&gt;</label> <br>
+                        <input type="radio" name="q1" value="d" id="q1d">
+                        <label for="q1d"><span></span>d. &lt;link&gt;</label><br>
+                    </div>
+
+                    <div class="q2 row hidden " id="q2">
+                        <p>2. Which HTML attribute is used to reference an external JavaScript file?</p><br>
+                        <input type="radio" name="q2" value="a" id="q2a">
+                        <label for="q2a"><span></span>a. src</label> <br>
+                        <input type="radio" name="q2" value="b" id="q2b">
+                        <label for="q2b"><span></span>b. rel</label> <br>
+                        <input type="radio" name="q2" value="c" id="q2c">
+                        <label for="q2c"><span></span>c. type</label> <br>
+                        <input type="radio" name="q2" value="d" id="q2d">
+                        <label for="q2d"><span></span>d. href</label> <br>
+                    </div>
+
+                    <div class="q3 row hidden" id="q3">
+                        <p>3. How would you write "Hello" in an alert box?</p><br>
+                        <input type="radio" name="q3" value="a" id="q3a">
+                        <label for="q3a"><span></span>a. msg("Hello");</label> <br>
+                        <input type="radio" name="q3" value="b" id="q3b">
+                        <label for="q3b"><span></span>b. alertBox("Hello");</label><br>
+                        <input type="radio" name="q3" value="c" id="q3c">
+                        <label for="q3c"><span></span>c. document.write("Hello");</label><br>
+                        <input type="radio" name="q3" value="d" id="q3d">
+                        <label for="q3d"><span></span>d. alert("Hello");</label><br>
+                    </div>
+
+                    <div class="q4 row hidden" id="q4">
+                        <p>4. Which operator is used to assign a value to a variable?</p><br>
+                        <input type="radio" name="q4" value="a" id="q4a">
+                        <label for="q4a"><span></span>a. *</label> <br>
+                        <input type="radio" name="q4" value="b" id="q4b">
+                        <label for="q4b"><span></span>b. =</label> <br>
+                        <input type="radio" name="q4" value="c" id="q4c">
+                        <label for="q4c"><span></span>c. ==</label> <br>
+                        <input type="radio" name="q4" value="d" id="q4d">
+                        <label for="q4d"><span></span>d. -> </label> <br>
+                    </div>
+
+                    <div class="q5 row hidden" id="q5">
+                        <p>5. A variable in JavaScript must start with which special character</p><br>
+                        <input type="radio" name="q5" value="a" id="q5a">
+                        <label for="q5a"><span></span>a. @</label><br>
+                        <input type="radio" name="q5" value="b" id="q5b">
+                        <label for="q5b"><span></span>b. $</label> <br>
+                        <input type="radio" name="q5" value="c" id="q5c">
+                        <label for="q5c"><span></span>c. #</label> <br>
+                        <input type="radio" name="q5" value="d" id="q5d">
+                        <label for="q5d"><span></span>d. No Special Character</label> <br>
+                    </div>
+
+                    <div class="q6 hidden score" id="q6">
+                        <!--<label for="q6">scoring div</label>-->
+                    </div>
                 </div>
+                <br><br>
+                <input class="btn btn-primary submit-btn" type="submit" value="Continue to quiz">
+            </form>
+        </section>
 
-                <div class="q1 row hidden" id="q1">
-                    <p>1. In which HTML element do we put in JavaScript code?</p>
-                    <input type="radio" name="q1" value="a" id="q1a">
-                    <label for="q1a"><span></span> &lt;js&gt;</label><br>
-                    <input type="radio" name="q1" value="b" id="q1b">
-                    <label for="q1b"><span></span>b. &lt;script&gt;</label><br>
-                    <input type="radio" name="q1" value="c" id="q1c">
-                    <label for="q1c"><span></span>c. &lt;body&gt;</label> <br>
-                    <input type="radio" name="q1" value="d" id="q1d">
-                    <label for="q1d"><span></span>d. &lt;link&gt;</label><br>
-                </div>
+        <footer>
+            <p>Copyright &copy; 2016, All Rights Reserved</p>
+        </footer>
 
-                <div class="q2 row hidden " id="q2">
-                    <p>2. Which HTML attribute is used to reference an external JavaScript file?</p><br>
-                    <input type="radio" name="q2" value="a" id="q2a">
-                    <label for="q2a"><span></span>a. src</label> <br>
-                    <input type="radio" name="q2" value="b" id="q2b">
-                    <label for="q2b"><span></span>b. rel</label> <br>
-                    <input type="radio" name="q2" value="c" id="q2c">
-                    <label for="q2c"><span></span>c. type</label> <br>
-                    <input type="radio" name="q2" value="d" id="q2d">
-                    <label for="q2d"><span></span>d. href</label> <br>
-                </div>
-
-                <div class="q3 row hidden" id="q3">
-                    <p>3. How would you write "Hello" in an alert box?</p><br>
-                    <input type="radio" name="q3" value="a" id="q3a">
-                    <label for="q3a"><span></span>a. msg("Hello");</label> <br>
-                    <input type="radio" name="q3" value="b" id="q3b">
-                    <label for="q3b"><span></span>b. alertBox("Hello");</label><br>
-                    <input type="radio" name="q3" value="c" id="q3c">
-                    <label for="q3c"><span></span>c. document.write("Hello");</label><br>
-                    <input type="radio" name="q3" value="d" id="q3d">
-                    <label for="q3d"><span></span>d. alert("Hello");</label><br>
-                </div>
-
-                <div class="q4 row hidden" id="q4">
-                    <p>4. Which operator is used to assign a value to a variable?</p><br>
-                    <input type="radio" name="q4" value="a" id="q4a">
-                    <label for="q4a"><span></span>a. *</label> <br>
-                    <input type="radio" name="q4" value="b" id="q4b">
-                    <label for="q4b"><span></span>b. =</label> <br>
-                    <input type="radio" name="q4" value="c" id="q4c">
-                    <label for="q4c"><span></span>c. ==</label> <br>
-                    <input type="radio" name="q4" value="d" id="q4d">
-                    <label for="q4d"><span></span>d. -> </label> <br>
-                </div>
-
-                <div class="q5 row hidden" id="q5">
-                    <p>5. A variable in JavaScript must start with which special character</p><br>
-                    <input type="radio" name="q5" value="a" id="q5a">
-                    <label for="q5a"><span></span>a. @</label><br>
-                    <input type="radio" name="q5" value="b" id="q5b">
-                    <label for="q5b"><span></span>b. $</label> <br>
-                    <input type="radio" name="q5" value="c" id="q5c">
-                    <label for="q5c"><span></span>c. #</label> <br>
-                    <input type="radio" name="q5" value="d" id="q5d">
-                    <label for="q5d"><span></span>d. No Special Character</label> <br>
-                </div>
-
-                <div class="q6 hidden score" id="q6">
-                    <!--<label for="q6">scoring div</label>-->
-                </div>
-            </div>
-            <br><br>
-            <input class="btn btn-primary submit-btn" type="submit" value="Continue to quiz">
-        </form>
-    </section>
-
-    <footer>
-        <p>Copyright &copy; 2016, All Rights Reserved</p>
-    </footer>
-
-    <!--<scripts>-->
-    <!--JQuery-->
-    <script src="//code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
-    <!--<script src="form-validation.js"></script>-->
-    <script src="app.js"></script>
+        <!--<scripts>-->
+        <!--JQuery-->
+        <script src="//code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
+        <!--<script src="form-validation.js"></script>-->
+        <script src="app.js"></script>
+    </div>
 </div>
 </body>
 </html>
