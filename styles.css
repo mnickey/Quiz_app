@@ -6,6 +6,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: gainsboro;
+    background-image: url("background.jpg");
 }
 
 button:hover {
@@ -16,16 +17,27 @@ button:hover {
     margin-top: 5px;
 }
 
+.progress {
+    background-color: transparent;
+}
+
+.progress-bar {
+    background-color: #008000;
+}
+
 div .container {
     width: 100%;
     margin: 1px 1px;
-    border: 1px dashed #ff0000;
-    border-radius: 5%;
+    /*border: 1px dashed #ff0000;*/
+    /*border-radius: 5%;*/
+    color: #ffff00;
 }
 
 div .row {
     width: 100%;
     padding: 5px;
+    /*background-color: slategrey;*/
+    background-color: transparent;
 }
 
 .quizForm .radioChoice:checked ~ .submit-btn {
@@ -43,6 +55,10 @@ input[type="radio"] {
     display: none;
 }
 
+span {
+    background-color: red;
+}
+
 input[type="radio"] + label span {
     display: inline-block;
     width: 19px;
@@ -55,4 +71,14 @@ input[type="radio"] + label span {
 
 input[type="radio"]:checked + label span {
     background: url(check_radio_sheet.png) -19px top no-repeat;
+}
+
+img {
+    float: right;
+    height: 10em;
+    padding-bottom: 25px;
+}
+
+.open-text {
+    color: #ffff00;
 }
