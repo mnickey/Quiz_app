@@ -55,8 +55,9 @@ input[type="radio"] {
     display: none;
 }
 
-span {
-    background-color: red;
+label, span {
+    background-color: slategrey;
+    width: 100%;
 }
 
 input[type="radio"] + label span {
@@ -73,12 +74,23 @@ input[type="radio"]:checked + label span {
     background: url(check_radio_sheet.png) -19px top no-repeat;
 }
 
-img {
+.hero2 {
+    float: left;
+    height: 10em;
+    padding-bottom: 25px;
+    margin-right: -15em;
+}
+
+.hero {
     float: right;
     height: 10em;
     padding-bottom: 25px;
 }
 
 .open-text {
+    color: #ffff00;
+}
+
+footer {
     color: #ffff00;
 }

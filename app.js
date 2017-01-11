@@ -26,7 +26,8 @@ function validateAnswer(state) {
 // Display Score
 function displayScore(state) {
     let results = document.getElementById('q6');
-    results.innerHTML = '<h3>You scored <span>' + state.score + '</span> out of <span>' + state.total + '</span></h3>';
+    results.innerHTML = '<h3>You scored <span style="background-color: inherit;">' + state.score +
+        '</span> out of <span style="background-color: inherit;">' + state.total + '</span></h3>';
 }
 
 function checkAnswer(state) {
